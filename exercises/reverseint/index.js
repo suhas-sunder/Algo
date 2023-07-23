@@ -10,8 +10,12 @@
 
 // Reverse string array and return number
 function backToNum(strArr) {
-  let num = parseInt(strArr.reverse().join(""));
-  return num;
+   //Reverse char array
+  let reverseStrArr = [];
+  strArr.forEach(char => reverseStrArr.unshift(char));
+
+  //Convert char array to number
+  return parseInt(reverseStrArr.join(""));
 }
 
 function reverseInt(n) {
