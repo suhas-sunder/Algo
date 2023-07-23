@@ -10,9 +10,9 @@
 
 // Reverse string array and return number
 function backToNum(strArr) {
-   //Reverse char array
+  //Reverse char array
   let reverseStrArr = [];
-  strArr.forEach(char => reverseStrArr.unshift(char));
+  strArr.forEach((char) => reverseStrArr.unshift(char));
 
   //Convert char array to number
   return parseInt(reverseStrArr.join(""));
@@ -20,15 +20,10 @@ function backToNum(strArr) {
 
 function reverseInt(n) {
   // Convert num to string array
-  let strNum = n.toString().split("");
+  let strNum = (n * -1).toString().split("");
 
   //Handle negative values
-  if (strNum.includes("-")) {
-    strNum.shift("-");
-    return backToNum(strNum) * -1;
-  } else {
-    return backToNum(strNum);
-  }
+  return backToNum(strNum) * Math.sign(n);
 }
 
 module.exports = reverseInt;
