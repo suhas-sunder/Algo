@@ -8,6 +8,22 @@
 //   reverseInt(-15) === -51
 //   reverseInt(-90) === -9
 
-function reverseInt(n) {}
+// Reverse string array and return number
+function backToNum(strArr) {
+  //Reverse char array
+  let reverseStrArr = [];
+  strArr.forEach((char) => reverseStrArr.unshift(char));
+
+  //Convert char array to number
+  return parseInt(reverseStrArr.join(""));
+}
+
+function reverseInt(n) {
+  // Convert num to string array
+  let strNum = (n * -1).toString().split("");
+
+  //Handle negative values
+  return backToNum(strNum) * Math.sign(n);
+}
 
 module.exports = reverseInt;
