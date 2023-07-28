@@ -12,6 +12,7 @@
 //   4
 //   buzz
 
+//First soln
 function fizzBuzz(n) {
   let str = [];
   for (let i = 1; i <= n; i++) {
