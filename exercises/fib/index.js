@@ -8,6 +8,20 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+// First solution - iterative w/ linear runtime
+// function fib(n) {
+//     const result = [0, 1];
+
+//     for(let i = 2; i <= n; i++) {
+//         result.push(result[i - 1] + result[i - 2])
+//     }
+
+//     return result[n];
+// }
+
+// Recursive solution - Exponential runtime (Not ideal!)
+function fib(n) {
+    return n < 2 ? n : fib(n - 1) + fib(n - 2);
+}
 
 module.exports = fib;
