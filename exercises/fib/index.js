@@ -19,9 +19,27 @@
 //     return result[n];
 // }
 
+// Generic memoized function
+function memoize(fn) {
+    const cachedCalls = {}
+    return function(...args) {
+        // If previously cached, return cached value
+        if(cachedCalls[args]) {
+            return cachedCalls[args];
+        }
+
+        const result = fn.apply(this, args);
+        cachedCalls[args] = result;
+        
+        return result;
+    };
+}
+
 // Recursive solution - Exponential runtime (Not ideal!)
 function fib(n) {
     return n < 2 ? n : fib(n - 1) + fib(n - 2);
 }
 
-module.exports = fib;
+const memoized = memoize(fib)
+
+module.exports = memoized;
