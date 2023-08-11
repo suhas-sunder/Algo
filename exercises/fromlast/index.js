@@ -11,6 +11,23 @@
 //    list.insertLast('d');
 //    fromLast(list, 2).data // 'b'
 
-function fromLast(list, n) {}
+function fromLast(list, n) {
+  let firstPointer = list.getFirst();
+  let secondPointer = list.getAt(n);
+
+  // If getAt method can't be used then here is a workaround.
+  // let secondPointer = list.getFirst();
+  // while(n > 0) {
+  //   secondPointer = secondPointer.next;
+  //   n--;
+  // }
+
+  while (secondPointer.next) {
+    firstPointer = firstPointer.next;
+    secondPointer = secondPointer.next;
+  }
+
+  return firstPointer;
+}
 
 module.exports = fromLast;
