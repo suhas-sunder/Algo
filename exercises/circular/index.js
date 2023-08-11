@@ -12,6 +12,18 @@
 //   c.next = b;
 //   circular(l) // true
 
-function circular(list) {}
+function circular(list) {
+  let firstPointer = list.getFirst();
+  let secondPointer = list.getFirst();
+
+  while (secondPointer.next && secondPointer.next.next) {
+    firstPointer = firstPointer.next;
+    secondPointer = secondPointer.next.next;
+    
+    if (firstPointer === secondPointer) return true;
+  }
+
+  return false;
+}
 
 module.exports = circular;
